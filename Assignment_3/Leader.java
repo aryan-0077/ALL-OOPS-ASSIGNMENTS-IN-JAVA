@@ -1,0 +1,169 @@
+import java.util.*;
+
+class ProductionWorker{
+
+private String name, number, date;
+private int  shift;
+private double hpr;
+
+
+ProductionWorker(String name ,String number, String date, int shift, double hpr){
+	this.name=name;
+	this.number= number;
+	this.date= date;
+	this.hpr=hpr;
+	this.shift=shift;
+}
+
+void setName(String name){
+this.name=name;
+}
+
+
+String  getName(){
+return name;
+
+}
+
+
+
+void setNumber(String number){
+this.number=number;
+}
+
+String getEmployeeNumber(){
+
+return number;
+
+}
+
+
+
+void setDate(String date){
+this.date=date;
+}
+
+String getDate(){
+
+return date;
+}
+
+void setShift(int n){
+this.shift= n;
+
+}
+
+int getshift(){
+return shift;
+
+}
+
+void sethpr(double n){
+this.hpr= n;
+
+}
+
+double gethpr(){
+return hpr;
+
+}
+
+
+}
+
+class TeamLeader extends ProductionWorker{
+
+private int bonus;
+private int traininghours,attendedhours;
+
+TeamLeader(String name ,String number, String date, int shift, double hpr,int bonus,int traininghours,int attendedhours)
+{
+	super( name ,number,  date, shift, hpr);
+	this.bonus= bonus;
+	this.traininghours= traininghours;
+	this.attendedhours= attendedhours;	
+}
+
+
+void setBonus(int bonus){
+
+this.bonus= bonus;
+}
+
+int getBonus(){
+
+return bonus;
+}
+
+void setTraininghours(int hours){
+this.traininghours= hours;
+}
+
+int getTraininghours(){
+
+return traininghours;
+
+}
+
+
+void setAttendedhours(int attendedhours)
+{
+this.attendedhours=attendedhours;
+
+}
+
+int getAttendedhours(){
+return attendedhours;
+}
+
+
+void getInformation(){
+
+	System.out.println("Name : "+getName()+ "  " + "Number : "+getEmployeeNumber() + "   "+ "Join date : "+getDate() );
+	System.out.println("Shift : "+getshift() + "  " +"Hour Per day : "+gethpr() +"\n");
+	System.out.println("Bonus: "+getBonus() + "  " +"Traininghours : "+getTraininghours() + "  " +"Attendedhours: "+getAttendedhours()+"\n");
+}
+
+
+}
+
+public class Leader{
+public static void main(String args[])
+{
+
+Scanner sc= new Scanner(System.in);
+String name, number, date;
+ int traininghours,attendedhours;
+int bonus,shift;
+double hpr;
+
+int n;
+System.out.println("Enter the number of information you want to add : ");
+n=sc.nextInt();
+sc.nextLine();
+TeamLeader s[]=new TeamLeader[n];
+
+for(int i=0;i<n;i++)
+{	
+
+	System.out.println("Enter the name, number , date,  shift,  hpr ,bonus, traininghours, attendedhours: ");
+	name=sc.nextLine();
+	number=sc.nextLine();
+	date= sc.nextLine();
+	shift=sc.nextInt();
+	hpr=sc.nextDouble();
+	bonus=sc.nextInt();
+	traininghours=sc.nextInt();
+	attendedhours=sc.nextInt();
+	sc.nextLine();
+s[i]=new TeamLeader(name,  number,  date, shift,hpr,bonus,traininghours,attendedhours);
+	
+}
+
+for(int i=0;i<n;i++){
+s[i].getInformation();
+}
+
+
+}
+}
